@@ -20,7 +20,7 @@ The following variables are only used for LaTeX output.
 
 | variable          | meaning |
 | ----------------- | ------- |
-| `language`        | can be either 'en' or 'nl' |
+| `language`        | can be either `en` or `nl` |
 | `holiday_weeks`   | weeks to highlight (optional) |
 | `filename_header` | filename of the header |
 | `filename_footer` | filename of the footer |
