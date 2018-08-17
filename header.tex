@@ -1,0 +1,33 @@
+\documentclass[a3paper]{article}
+\usepackage[left=3.3cm,right=3.3cm,top=1.2cm,bottom=1.2cm]{geometry}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{array}
+
+\usetikzlibrary{calc}
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\pagenumbering{gobble}
+\definecolor{lightgray}{gray}{0.8}
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\check}{\enspace\tikz[scale=.35]{\draw[black, fill=white] rectangle (1,1);}}
+\newcommand{\oddcolor}{Emerald!40}
+\newcommand{\evencolor}{Emerald!70}
+\newcommand{\tikzmark}[1]{\tikz[overlay, remember picture] \node[inner sep=0pt, outer sep=0pt, anchor=base] (#1) {};}
+
+\begin{document}
+
+\fontsize{15pt}{18pt}
+\selectfont
+\centering
+
+\rowcolors{4}{lightgray}{}
+\def\arraystretch{1.1}
+\begin{tabular}{P{1cm}p{2cm}p{2cm}|P{3cm}P{3cm}P{3cm}P{3cm}}
+ & & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\LARGE <chore>} \\ \cline{4-7}
+ <week> & \multicolumn{1}{c}{<from>} & \multicolumn{1}{c}{<until>} & <field1> & <field2> & <field3> & \multicolumn{1}{m{3cm}}{<field4>} \\ \hline

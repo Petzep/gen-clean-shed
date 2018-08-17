@@ -1,0 +1,15 @@
+{
+'<title>' : 'Cleaning schedule',
+'<chore>' : 'chore',
+'<week>' : 'week',
+'<from>' : 'from',
+'<until>' : 'until',
+'<field1>' : 'kitchen unit',
+'<field2>' : 'floor kitchen',
+'<field3>' : 'floor hallway',
+'<field4>' : 'waste paper, garbage and glass',
+'<notice>' : 'note',
+'<side-msg>' : 'sides change!',
+'<holiday>' : 'holidays',
+'<bottom-msg>' : 'swap timely!',
+}

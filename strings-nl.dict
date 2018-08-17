@@ -1,0 +1,15 @@
+{
+'<title>' : 'Schoonmaakrooster',
+'<chore>' : 'taak',
+'<week>' : 'week',
+'<from>' : 'van',
+'<until>' : 'tot',
+'<field1>' : 'keukenblok',
+'<field2>' : 'vloer keuken',
+'<field3>' : 'vloer gang',
+'<field4>' : 'afval, papier en glas',
+'<notice>' : 'let op',
+'<side-msg>' : 'zijdes wisselen!',
+'<holiday>' : 'vakantie',
+'<bottom-msg>' : 'ruil tijdig!',
+}
