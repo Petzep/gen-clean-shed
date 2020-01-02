@@ -6,14 +6,14 @@ Script to generate a cleaning schedule in LaTeX or plain csv.
 '''
 
 # General settings:
-year = 2018
-switch_week = 28 # first week of the summer holidays
-output_format = 'csv'
-filename = 'schedule.csv'
+year = 2019
+switch_week = 0 # first week of the summer holidays
+output_format = 'latex'
+filename = 'schedule.tex'
 
 # LaTeX-specific settings:
 language = 'en'
-holiday_weeks = [1,7,28,29,30,31,32,33,34,35,52]
+holiday_weeks = [1,10,28,29,30,31,32,33,34,35,52]
 filename_header = 'header.tex'
 filename_footer = 'footer.tex'
 
@@ -81,8 +81,8 @@ def output_line(of, line):
         rest = rest.replace(',,', ', & ')
         rest = rest.replace(',', ' \\check & ')
         of.write(' & ' + rest + ' \\check ')
-        if i == switch_week:
-            of.write('\\tikzmark{sidenote} ' )
+        if i != 0 and i == switch_week:
+            of.write('\\sidenotetrue\\tikzmark{sidenote} ' )
         of.write('\\\\\n')
     return
 
@@ -99,7 +99,10 @@ def generate_schedule(of):
 
         # at the beginning of the summer holidays,
         # the alternation of sides is swapped
-        if i < switch_week:
+        if switch_week == 0:
+            switcheroo = (i % 16) // 8
+            side = (i-switcheroo) % 2
+        elif i < switch_week:
             side = (i-1) % 2
         else:
             side = i % 2
