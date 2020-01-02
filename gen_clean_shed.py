@@ -12,7 +12,7 @@ output_format = 'latex'
 filename = 'schedule.tex'
 
 # LaTeX-specific settings:
-language = 'en'
+language = 'nl'
 holiday_weeks = [1,9,28,29,30,31,32,33,34,35,52,53]
 filename_header = 'header.tex'
 filename_footer = 'footer.tex'
@@ -93,9 +93,9 @@ Determines which room is doing what chore for all weeks of the year.
 def generate_schedule(of):
     rooms = [['A', 'B', 'C', 'D'], ['E', 'F', 'G', 'H']] # the suffixes
     turn = [3, 1] # 0,3 means A,H etc.
-
+    weeks_in_year = date(year, 12, 31).isocalendar()[1]
     # i is the weeknumber
-    for i in range(1,53):
+    for i in range(1,(weeks_in_year+1)):
         line = '' 
 
         # at the beginning of the summer holidays,
