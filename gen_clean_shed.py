@@ -6,20 +6,21 @@ Script to generate a cleaning schedule in LaTeX or plain csv.
 '''
 
 # General settings:
-year = 2019
+year = 2020
 switch_week = 0 # first week of the summer holidays
 output_format = 'latex'
 filename = 'schedule.tex'
 
 # LaTeX-specific settings:
 language = 'en'
-holiday_weeks = [1,10,28,29,30,31,32,33,34,35,52]
+holiday_weeks = [1,9,28,29,30,31,32,33,34,35,52,53]
 filename_header = 'header.tex'
 filename_footer = 'footer.tex'
 
 from datetime import date, timedelta
 import locale
 import ast
+import os
 
 def get_week_days(week):
     d = date(year,1,1)
@@ -136,10 +137,23 @@ def main():
 
     elif output_format == 'latex':
         # set locale for the name of the month
-        if language == 'nl':
-            locale.setlocale(locale.LC_TIME, 'nl_NL.utf8')
+        # on Windows we have a different locale
+        if os.name == 'nt':
+            if language == 'nl':
+                locale.setlocale(locale.LC_TIME, 'dutch')
+            elif language == 'en':
+                locale.setlocale(locale.LC_TIME, 'american')
+            else:
+                print('Language setting error, defaulting to english. Please use [en] or [nl]')
+                locale.setlocale(locale.LC_TIME, 'en_US.utf8')
         else:
-            locale.setlocale(locale.LC_TIME, 'en_US.utf8')
+            if language == 'nl':
+                locale.setlocale(locale.LC_TIME, 'nl_NL.utf8')
+            elif language == 'en':
+                locale.setlocale(locale.LC_TIME, 'en_US.utf8')
+            else:
+                print('Language setting error, defaulting to english. Please use [en] or [nl]')
+                locale.setlocale(locale.LC_TIME, 'en_US.utf8')
 
         # load translation strings
         with open('strings-' + language + '.dict','r') as inf:
