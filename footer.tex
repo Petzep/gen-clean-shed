@@ -1,8 +1,10 @@
 \end{tabular}
+\ifsidenote
 \begin{tikzpicture}[overlay,remember picture]
 \path[<-,line width=2pt] ($(sidenote) + (2,0.2)$) edge[bend right] ++(1.5,1);
 \node [align=center] at ($(sidenote) + (3.5,2)$) {<notice>:\\\textit{<side-msg>}};
 \end{tikzpicture}
+\fi
 \raggedright
 
 \vspace{1em} \hspace{2em}
