@@ -12,4 +12,6 @@
 '<side-msg>' : 'zijdes wisselen!',
 '<holiday>' : 'vakantie',
 '<bottom-msg>' : 'ruil tijdig!',
+'<exam>' : 'examenweken',
+'<exam-msg>' : 'help elkaar een beetje!',
 }
