@@ -6,14 +6,15 @@ Script to generate a cleaning schedule in LaTeX or plain csv.
 '''
 
 # General settings:
-year = 2020
+year = 2021
 switch_week = 0 # first week of the summer holidays
 output_format = 'latex'
 filename = 'schedule.tex'
 
 # LaTeX-specific settings:
 language = 'nl'
-holiday_weeks = [1,9,28,29,30,31,32,33,34,35,52,53]
+holiday_weeks = [7,27,28,29,30,31,32,34,35,51,52]
+exam_weeks = [3,4,14,15,25,26,33,44,45]
 filename_header = 'header.tex'
 filename_footer = 'footer.tex'
 
@@ -70,6 +71,13 @@ def output_line(of, line):
                 of.write('\\rowcolor{\evencolor}\n')
             if i % 2 == 1:
                 of.write('\\rowcolor{\oddcolor}\n')
+
+        # highlight the row if it is a exam week
+        if i in exam_weeks:
+            # use different tints for even and odd weeks
+            # note: the package xcolor does not seem to support
+            # multiple alternating colorschemes in one table
+            of.write('\\rowcolor{\examcolor}\n')
 
         # calculate the dates from the week number
         of.write(str(i) + ' & ' +  get_week_days(i)[0].strftime('%b'))
