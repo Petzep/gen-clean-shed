@@ -74,9 +74,6 @@ def output_line(of, line):
 
         # highlight the row if it is a exam week
         if i in exam_weeks:
-            # use different tints for even and odd weeks
-            # note: the package xcolor does not seem to support
-            # multiple alternating colorschemes in one table
             of.write('\\rowcolor{\examcolor}\n')
 
         # calculate the dates from the week number
