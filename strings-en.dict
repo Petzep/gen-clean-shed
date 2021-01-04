@@ -12,4 +12,6 @@
 '<side-msg>' : 'sides change!',
 '<holiday>' : 'holidays',
 '<bottom-msg>' : 'swap timely!',
+'<exam>' : 'examination period',
+'<exam-msg>' : 'take care of eachother!',
 }
